@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>✨ Surprise pour une personne spéciale  ✨</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="lux-bg center top-aligned">
+    <div class="no-bg">
+        <h1 class="white-text">Une surprise pour une personne spéciale 🌹</h1>
+        <p class="red-light-text">Scanne le code ci-dessous</p>
+        
+        <div class="qrcode-container">
+            <div id="qrcode"></div>
+        </div>
+        
+        <p class="red-light-text">🌹 Utilise ton appareil photo pour scanner 🌹</p>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script>
+        window.onload = function() {
+            new QRCode(document.getElementById("qrcode"), {
+                text: "https://awilfried850-del.github.io/halaly-anniversaire/surprise.html",
+                width: 180,
+                height: 180,
+                colorDark : "#e63946",
+                colorLight : "#ffffff",
+                correctLevel : QRCode.CorrectLevel.H
+            });
+        };
+    </script>
+</body>
+</html>
