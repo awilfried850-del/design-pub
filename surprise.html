@@ -14,9 +14,12 @@
 
 <h1 id="typeText" class="gold big"></h1>
 
-<button onclick="playMusic()" class="lux-btn">
-🎵 Lancer la musique
+<button onclick="playMusic()" class="lux-btn" id="musicBtn">
+    🎵 Lancer la musique
 </button>
+
+
+
 
 <!-- Le diaporama sera ajouté ici par JavaScript -->
 
@@ -45,8 +48,13 @@ Chaque mini-site est personnalisé, élégant, discret et facile à partager.
 
 </div>
 
-<audio id="music" src="music.mp3"></audio>
+<audio id="music">
+    <source src="music.mp3" type="audio/mpeg">
+</audio>
+
 
 <script src="script.js"></script>
+
+
 </body>
 </html>

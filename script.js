@@ -12,9 +12,24 @@ function typing(){
 typing();
 
 // ---------- MUSIQUE ----------
-function playMusic(){
-    document.getElementById("music").play();
+// ---------- SYSTÈME DE MUSIQUE (DÉCLENCHÉ AU CLIC) ----------
+function playMusic() {
+    const audio = document.getElementById("music");
+    const btn = document.getElementById("musicBtn");
+
+    // On force le chargement et la lecture
+    audio.play().then(() => {
+        // Si ça marche, on change le texte du bouton
+        btn.innerHTML = "🎶 Musique en cours...";
+        btn.style.opacity = "0.7"; 
+        console.log("Lecture réussie !");
+    }).catch(error => {
+        // Si ça échoue (ex: fichier introuvable)
+        console.error("Erreur de lecture : ", error);
+        alert("Attention : Le fichier 'music.mp3' est introuvable ou mal nommé.");
+    });
 }
+
 
 
 // ---------- SYSTÈME DE DIAPORAMA RÉPARÉ ----------
@@ -94,7 +109,3 @@ function draw() {
 }
 draw();
 
-function playMusic(){
-    const m = document.getElementById("music");
-    if(m) m.play();
-}
