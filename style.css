@@ -1,0 +1,141 @@
+/* ================= DESIGN ROUGE & BLANC OPTIMISÉ ================= */
+
+body {
+    margin: 0;
+    font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    color: white;
+    overflow-x: hidden;
+}
+
+.lux-bg {
+    background: radial-gradient(circle at top, #ff4d4d, #800000);
+    min-height: 100vh;
+}
+
+/* Centrage vertical et rapprochement vers le haut */
+.top-aligned {
+    display: flex;
+    flex-direction: column;
+    align-items: center; 
+    justify-content: flex-start;
+    padding-top: 5vh; /* Petit espace en haut */
+    text-align: center;
+}
+
+.no-bg {
+    background: none;
+    border: none;
+    box-shadow: none;
+    width: 100%;
+}
+
+/* Titres bien centrés */
+h1.white-text, h1.gold {
+    width: 100%;
+    margin: 10px 0;
+    text-align: center;
+}
+
+/* QR Code et conteneur */
+.qrcode-container {
+    width: 200px;
+    height: 200px;
+    background: white;
+    border-radius: 20px;
+    padding: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto; /* Centrage automatique horizontal */
+    border: 5px solid rgba(255,255,255,0.3);
+}
+
+/* Bouton centré */
+.lux-btn {
+    display: block;
+    margin: 20px auto; /* Centrage horizontal */
+    background: white;
+    color: #990000;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* LETTRE - Largeur limitée et apparition lente */
+.letter {
+    max-width: 600px; /* Ne prend pas toute la largeur */
+    margin: 40px auto; /* Centré horizontalement */
+    padding: 20px;
+    line-height: 1.8;
+    font-size: 1.1rem;
+    color: #fff;
+    text-align: center;
+    opacity: 0; /* Caché au début */
+    transform: translateY(30px);
+    animation: slowReveal 4s ease-out forwards; /* Apparition lente */
+    animation-delay: 2s; /* Attend un peu avant de se montrer */
+}
+
+@keyframes slowReveal {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Diaporama centré */
+/* ================= DIAPORAMA HAUTE VISIBILITÉ ================= */
+
+.slideshow-container {
+    width: 95%;            /* Prend presque toute la largeur sur mobile */
+    max-width: 600px;      /* Plus grand sur ordinateur */
+    height: 450px;         /* Hauteur augmentée pour mieux voir les visages */
+    margin: 20px auto;     /* Centrage parfait */
+    border: 6px solid white;
+    border-radius: 25px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    background: #000;      /* Fond noir pour éviter les flashs blancs */
+}
+
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out; /* Transition plus douce */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide.active {
+    opacity: 1;
+    z-index: 2;
+}
+
+.slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;    /* L'image remplit tout le cadre sans se déformer */
+    display: block;
+}
+
+/* Ajustement pour les petits téléphones */
+@media (max-width: 480px) {
+    .slideshow-container {
+        height: 350px;     /* On réduit un peu la hauteur sur petit écran */
+    }
+}
+
+/* Cœurs flottants plus visibles */
+#confetti {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10;
+}
